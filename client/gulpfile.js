@@ -42,6 +42,7 @@ gulp.task("dev", () => {
     server: "./",
   });
   gulp.watch("./src/scss/**/**.scss", gulp.series("buildStyles"));
+  gulp.watch("./src/images/**/**.*", gulp.series("tinypng"));
   gulp.watch("./src/js/**/**.js", gulp.series("buildJS"));
   gulp.watch("./index.html").on("change", browserSync.reload);
   gulp.watch("./dist/css/style.min.css").on("change", browserSync.reload);

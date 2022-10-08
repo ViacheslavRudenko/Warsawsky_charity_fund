@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   padding: 20px;
   .nav {
     padding-top: 20px;
@@ -14,6 +13,8 @@
       width: max-content;
       background: none;
       border: none;
+      text-decoration: none;
+      color: inherit;
       &:hover {
         font-weight: 700;
       }

@@ -20,15 +20,15 @@
         <img src="./src/images/Logo.svg" alt="Warsawskyi-img" />
       </div>
       <nav class="header__nav nav">
-        <button class="nav__btn">Потреби</button>
-        <button class="nav__btn">Про нас</button>
-        <button class="nav__btn">Проекти</button>
-        <button class="nav__btn">Співпраця</button>
+        <a href="#" class="nav__btn">Потреби</a>
+        <a href="#about-us" class="nav__btn">Про нас</a>
+        <a href="#" class="nav__btn">Проекти</a>
+        <a href="#collaboration" class="nav__btn">Співпраця</a>
       </nav>
     </header>
     <main>
       <!-- About us -->
-      <div class="container about-us">
+      <div class="container about-us" id="about-us">
         <div class="about-us__content content">
           <h1 class="content__title">Благодійний Фонд “Варшавський”</h1>
           <p class="content__text">
@@ -53,7 +53,21 @@
       </div>
 
       <!-- Collaboration  -->
-      <div class="collaboration"></div>
+      <div class="collaboration" id="collaboration">
+        <div class="container">
+          <div class="collaboration__content">
+            <h3 class="collaboration__title">⚡️ З ким ми працюємо?</h3>
+            <p class="collaboration__text">
+              Ми співпрацюємо із командуванням підрозділів, напряму комунікуючи
+              з командирами військових частин та формувань. Чекаємо на запити
+              від командирів вашої роти, батальйону чи бригади.
+            </p>
+          </div>
+          <div class="collaboration__img">
+            <img src="./src/images/Collaboration/collaba-img.png" alt="" />
+          </div>
+        </div>
+      </div>
     </main>
     <script type="module" src="./dist/js/main.js"></script>
   </body>

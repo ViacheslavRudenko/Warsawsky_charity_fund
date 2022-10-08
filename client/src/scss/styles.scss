@@ -11,6 +11,8 @@ body {
 .container {
   margin: 0 auto;
   max-width: 1200px;
+  padding: 20px;
 }
 @import "styles/header";
 @import "./styles/main/about";
+@import "./styles/main/collaboration";

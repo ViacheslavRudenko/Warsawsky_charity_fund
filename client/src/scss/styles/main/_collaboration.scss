@@ -1,0 +1,41 @@
+.collaboration {
+  background-image: url("../images/Collaboration/Collaba_bg.png");
+  background-repeat: no-repeat;
+  background-position: top 10%;
+  &__title {
+    font-size: 28px;
+    line-height: 48px;
+    padding-bottom: 20px;
+  }
+  &__text {
+    line-height: 26px;
+    padding-bottom: 50px;
+  }
+  &__img {
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .collaboration {
+    padding-top: 200px;
+    position: relative;
+    background-position: right 0 top 10%;
+    .container {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    &__content {
+      flex: 1;
+    }
+    &__img {
+      flex: 1;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+}
