@@ -1,0 +1,18 @@
+@import "../../mixins";
+.donates {
+  background-color: #3576f3;
+  padding: 80px 0 120px;
+  &__title {
+    @include font-title-desktop;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 62px;
+  }
+  &__btn {
+    margin: 0 auto;
+    width: fit-content;
+    button {
+      background: #ffffff;
+    }
+  }
+}

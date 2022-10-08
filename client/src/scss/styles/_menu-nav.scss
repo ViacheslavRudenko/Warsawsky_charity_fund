@@ -1,12 +1,12 @@
-.header {
+@import "../mixins";
+.menu {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   .nav {
     padding-top: 20px;
-    display: flex;
-    flex-direction: row;
+    @include flex;
     justify-content: space-around;
 
     &__btn {
@@ -23,12 +23,10 @@
 }
 
 @media screen and (min-width: 600px) {
-  .header {
+  .menu {
     align-items: flex-end;
     flex-direction: row;
-    &__logo {
-      flex: 1;
-    }
+    &__logo,
     &__nav {
       flex: 1;
     }

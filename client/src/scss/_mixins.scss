@@ -1,9 +1,28 @@
 @mixin flex {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 @mixin img-position {
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+@mixin font-text-desktop {
+  font-size: 22px;
+  line-height: 36px;
+}
+
+@mixin font-title-desktop {
+  font-size: 41px;
+  line-height: 48px;
+}
+
+@mixin font-text-mobile {
+  line-height: 26px;
+  line-height: 36px;
+}
+
+@mixin font-title-mobile {
+  font-size: 28px;
+  line-height: 48px;
 }

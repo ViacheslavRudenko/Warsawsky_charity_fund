@@ -1,8 +1,8 @@
+@import "../../mixins";
 .about-us {
-  display: flex;
+  @include flex;
   padding: 30px 20px;
-  flex-wrap: wrap;
-  background-image: url("../images/illustration.png");
+  background-image: url("../images/About-us/illustration.png");
   background-repeat: no-repeat;
   background-position: right 10px top 10%;
   position: relative;
@@ -23,18 +23,13 @@
     &__text {
       padding: 20px 0;
       font-size: 18px;
-      line-height: 36px;
+      @include font-text-mobile;
     }
     &__btn {
       padding: 40px 0;
       button {
-        font-weight: 300;
-        font-size: 18px;
         color: #fff;
         background-color: #3576f3;
-        padding: 15px 40px;
-        border: none;
-        border-radius: 30px;
       }
     }
   }
@@ -65,8 +60,7 @@
         line-height: 74px;
       }
       &__text {
-        font-size: 22px;
-        line-height: 36px;
+        @include font-text-desktop;
       }
       &__btn {
         padding: 80px 0;

@@ -15,11 +15,11 @@
   </head>
   <body>
     <!-- Headr-->
-    <header class="header container">
-      <div class="header__logo">
+    <header class="header container menu">
+      <div class="menu__logo">
         <img src="./src/images/Logo.svg" alt="Warsawskyi-img" />
       </div>
-      <nav class="header__nav nav">
+      <nav class="menu__nav nav">
         <a href="#" class="nav__btn">Потреби</a>
         <a href="#about-us" class="nav__btn">Про нас</a>
         <a href="#" class="nav__btn">Проекти</a>
@@ -36,7 +36,7 @@
             на фронті
           </p>
           <div class="content__btn">
-            <button>
+            <button class="btn">
               <img src="./src/images/Group.png" alt="logo" />
               <span>Допомагаю</span>
             </button>
@@ -68,7 +68,40 @@
           </div>
         </div>
       </div>
+
+      <!-- We need  -->
+      <div class="need"><div class="contaier"></div></div>
+
+      <!-- Donates  -->
+      <div class="donates" id="donates">
+        <h6 class="donates__title">Кожна хвилина на рахунку!</h6>
+        <div class="donates__btn">
+          <button class="btn">
+            <img src="./src/images/Donates/Group.png" alt="donates-logo" />
+            <span>Допомагаю</span>
+          </button>
+        </div>
+      </div>
     </main>
+    <!-- Footer  -->
+    <footer class="footer">
+      <div class="footer__menu container menu">
+        <div class="menu__logo">
+          <img src="./src/images/footer/Logo.png" alt="logo" />
+        </div>
+        <div class="menu__nav nav">
+          <a href="#about-us" class="nav__btn">Про нас</a>
+          <a href="#" class="nav__btn">Контакти</a>
+          <a href="#" class="nav__btn">Звіти</a>
+          <a href="#collaboration" class="nav__btn">Співпраця</a>
+        </div>
+      </div>
+      <div class="footer__info">
+        <img src="./src/images/footer/Ukraine.png" alt="ua-logo" />
+
+        <p>Допомагаємо ЗСУ разом. Номер реєстрації 12-12345-235908</p>
+      </div>
+    </footer>
     <script type="module" src="./dist/js/main.js"></script>
   </body>
 </html>
