@@ -8,10 +8,12 @@ const tinypng = require("gulp-tinypng");
 const autoprefixer = require("gulp-autoprefixer");
 
 gulp.task("tinypng", () => {
-  return gulp
-    .src("./src/images/**")
-    .pipe(tinypng("Tf3xFMPYlz0r2SsdsXwQtghJcLspQYym"))
-    .pipe(gulp.dest("./dist/images"));
+  return (
+    gulp
+      .src("./src/images/**")
+      //.pipe(tinypng("Tf3xFMPYlz0r2SsdsXwQtghJcLspQYym"))
+      .pipe(gulp.dest("./dist/images"))
+  );
 });
 gulp.task("buildStyles", function () {
   return gulp
