@@ -33,7 +33,7 @@ gulp.task("clean", function () {
   return gulp.src("./dist/*", { read: false }).pipe(clean());
 });
 gulp.task("buildJS", function () {
-  return gulp.src(["./src/js/*.js"]).pipe(gulp.dest("./dist/js"));
+  return gulp.src(["./src/js/**/**.js"]).pipe(gulp.dest("./dist/js"));
 });
 
 gulp.task("build", gulp.series(["clean", "buildJS", "buildStyles", "tinypng"]));

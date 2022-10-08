@@ -3,7 +3,7 @@
   background-color: #3576f3;
   padding: 80px 0 120px;
   &__title {
-    @include font-title-desktop;
+    @include font-title-mobile;
     color: #fff;
     text-align: center;
     padding-bottom: 62px;
@@ -13,6 +13,14 @@
     width: fit-content;
     button {
       background: #ffffff;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .donates {
+    &__title {
+      @include font-title-desktop;
     }
   }
 }
