@@ -12,7 +12,7 @@ gulp.task("tinypng", () => {
     gulp
       .src("./src/images/**")
       //.pipe(tinypng("Tf3xFMPYlz0r2SsdsXwQtghJcLspQYym"))
-      .pipe(gulp.dest("./dist/images"))
+      .pipe(gulp.dest("./dist/images/"))
   );
 });
 gulp.task("buildStyles", function () {
