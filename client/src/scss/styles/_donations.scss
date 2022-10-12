@@ -1,13 +1,12 @@
 .donations {
+  font-weight: 300;
   padding: 40px 0;
-
   &__needs {
     text-align: center;
   }
   &__pay {
     padding-top: 40px;
   }
-
   .needs {
     &__content {
       padding: 40px 0;
@@ -15,9 +14,13 @@
         width: 250px;
       }
     }
+    &__text {
+      a {
+        color: #3576f3;
+      }
+    }
   }
   .pay {
-    font-weight: 300;
     text-align: center;
     &__title {
       font-weight: 400;
@@ -52,12 +55,24 @@
     }
     &__separator {
       padding: 60px 0;
+      width: fit-content;
+      margin: 0 auto;
+      position: relative;
       &::before,
       &::after {
         content: "";
+        position: absolute;
+        height: 1px;
+        width: 120px;
         background-color: #000000;
-        width: 100px;
-        height: 100px;
+      }
+      &::before {
+        top: 67px;
+        left: -140px;
+      }
+      &::after {
+        top: 67px;
+        left: 50px;
       }
     }
   }
