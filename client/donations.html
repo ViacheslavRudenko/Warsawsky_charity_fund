@@ -43,36 +43,58 @@
           </div>
           <p class="pay__separator">АБО</p>
           <div class="pay__form">
-            <form action="submit" class="form">
+            <form class="form">
               <input
                 class="form__summ"
                 type="currency"
                 id="summ"
                 name="summ"
                 placeholder="1000"
+                required
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
               />
               <input
                 type="tel"
                 id="ccnum"
                 name="cardnumber"
                 placeholder="1111-2222-3333-4444"
+                required
+                maxlength="12"
+                minlength="12"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
               />
               <input
                 type="text"
                 id="fullname"
                 name="fullname"
                 placeholder="Full name"
+                required
+                minlength="3"
+                onkeydown="return /[a-z]/i.test(event.key)"
               />
               <input
                 type="tel"
                 id="expdate"
                 name="expdate"
+                required
                 placeholder="Expiry Date"
+                maxlength="7"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
               />
-              <input type="tel" id="cvc" name="cvc" placeholder="CVC" />
+              <input
+                type="tel"
+                id="cvc"
+                name="cvc"
+                placeholder="CVC"
+                required
+                maxlength="3"
+                minlength="3"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              />
 
-              <button class="btn form__btn">
-                <img src="./dist/images/btn/Group-white.png" alt="" /> Допомагаю
+              <button class="btn form__btn" type="submit">
+                <img src="./dist/images/btn/Group-white.png" alt="pray-logo" />
+                Допомагаю
               </button>
             </form>
           </div>
