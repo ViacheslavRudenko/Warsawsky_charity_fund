@@ -42,6 +42,40 @@
             <button class="btn">privat24</button>
           </div>
           <p class="pay__separator">АБО</p>
+          <div class="pay__form">
+            <form action="submit" class="form">
+              <input
+                class="form__summ"
+                type="currency"
+                id="summ"
+                name="summ"
+                placeholder="1000"
+              />
+              <input
+                type="tel"
+                id="ccnum"
+                name="cardnumber"
+                placeholder="1111-2222-3333-4444"
+              />
+              <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="Full name"
+              />
+              <input
+                type="tel"
+                id="expdate"
+                name="expdate"
+                placeholder="Expiry Date"
+              />
+              <input type="tel" id="cvc" name="cvc" placeholder="CVC" />
+
+              <button class="btn form__btn">
+                <img src="./dist/images/btn/Group-white.png" alt="" /> Допомагаю
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </main>
