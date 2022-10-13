@@ -10,6 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./dist/css/style.min.css" />
+    <script type="module" src="./dist/js/main.js"></script>
   </head>
   <body>
     <main>
@@ -43,56 +44,64 @@
           </div>
           <p class="pay__separator">АБО</p>
           <div class="pay__form">
-            <form class="form">
+            <form class="form" id="donations-form">
               <input
                 class="form__summ"
                 type="currency"
-                id="summ"
-                name="summ"
+                id="sum"
+                name="sum"
                 placeholder="1000"
-                required
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
               />
+              <p style="display: none" class="err" id="sum-err"></p>
               <input
                 type="tel"
                 id="ccnum"
                 name="cardnumber"
                 placeholder="1111-2222-3333-4444"
-                required
-                maxlength="12"
-                minlength="12"
+                maxlength="16"
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
               />
+              <p style="display: none" class="err" id="cc-err"></p>
               <input
                 type="text"
                 id="fullname"
                 name="fullname"
                 placeholder="Full name"
-                required
                 minlength="3"
-                onkeydown="return /[a-z]/i.test(event.key)"
               />
+              <p style="display: none" class="err" id="fullname-err"></p>
+              <div class="form__date">
+                <input
+                  type="tel"
+                  id="expmonth"
+                  name="expmonth"
+                  placeholder="Expiry Month"
+                  maxlength="2"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                />
+                <input
+                  type="tel"
+                  id="expyear"
+                  name="expyear"
+                  placeholder="Expiry Year"
+                  maxlength="4"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                />
+              </div>
+              <p style="display: none" class="err" id="date-err"></p>
               <input
                 type="tel"
-                id="expdate"
-                name="expdate"
-                required
-                placeholder="Expiry Date"
-                maxlength="7"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-              />
-              <input
-                type="tel"
-                id="cvc"
-                name="cvc"
-                placeholder="CVC"
+                id="cvv"
+                name="cvv"
+                placeholder="CVV"
                 required
                 maxlength="3"
-                minlength="3"
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
               />
+              <p style="display: none" class="err" id="cvv-err"></p>
 
-              <button class="btn form__btn" type="submit">
+              <button class="btn form__btn" id="btn-submit" type="button">
                 <img src="./dist/images/btn/Group-white.png" alt="pray-logo" />
                 Допомагаю
               </button>
@@ -102,5 +111,4 @@
       </div>
     </main>
   </body>
-  <script type="module" src="./dist/js/main.js"></script>
 </html>
