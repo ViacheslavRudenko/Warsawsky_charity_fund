@@ -18,11 +18,8 @@ export default class Donations {
       const ccSuccess = this.getCardNumValidation(formData.cardnumber);
       const nameSuccess = this.getFullNameValidation(formData.fullname);
       const cvvSuccess = this.getCvvValidation(formData.cvv);
-      const dateSuccess = this.getExpiryDateValidation(
-        formData.expmonth,
-        formData.expyear
-      );
-      if (sumSuccess && ccSuccess && nameSuccess && cvvSuccess && dateSuccess) {
+      const dateSuccess = this.getExpiryDateValidation(formData.expdate);
+      if (sumSuccess && ccSuccess && nameSuccess && cvvSuccess) {
         const form = document.getElementById("donations-form");
         form.reset();
         console.log(formData);
@@ -65,8 +62,8 @@ export default class Donations {
     this.addInputError(err, result);
     return result.success;
   }
-  getExpiryDateValidation(month, year) {
-    const result = validateExpiryDate(month, year);
+  getExpiryDateValidation(expdate) {
+    const result = validateExpiryDate(expdate);
     const err = document.getElementById("date-err");
     this.addInputError(err, result);
     return result.success;

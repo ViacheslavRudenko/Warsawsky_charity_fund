@@ -10,7 +10,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./dist/css/style.min.css" />
-    <script type="module" src="./dist/js/main.js"></script>
   </head>
   <body>
     <main>
@@ -58,8 +57,8 @@
                 type="tel"
                 id="ccnum"
                 name="cardnumber"
-                placeholder="1111-2222-3333-4444"
-                maxlength="16"
+                placeholder="1111 2222 3333 4444"
+                maxlength="19"
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
               />
               <p style="display: none" class="err" id="cc-err"></p>
@@ -71,24 +70,15 @@
                 minlength="3"
               />
               <p style="display: none" class="err" id="fullname-err"></p>
-              <div class="form__date">
-                <input
-                  type="tel"
-                  id="expmonth"
-                  name="expmonth"
-                  placeholder="Expiry Month"
-                  maxlength="2"
-                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                />
-                <input
-                  type="tel"
-                  id="expyear"
-                  name="expyear"
-                  placeholder="Expiry Year"
-                  maxlength="4"
-                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                />
-              </div>
+              <input
+                id="expdate"
+                name="expdate"
+                maxlength="5"
+                placeholder="MM/YY"
+                type="text"
+                onkeyup="formatString(event);"
+              />
+
               <p style="display: none" class="err" id="date-err"></p>
               <input
                 type="tel"
@@ -111,4 +101,6 @@
       </div>
     </main>
   </body>
+  <script type="module" src="./dist/js/main.js"></script>
+  <script src="./dist/js/main/donations/ccStyle.js"></script>
 </html>
