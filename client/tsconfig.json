@@ -1,7 +1,18 @@
 {
   "compilerOptions": {
-    "noImplicitAny": true,
+    "outDir": "out",
+    "module": "commonjs",
     "target": "es6",
-    "moduleResolution": "node"
-  }
+    "moduleResolution": "node",
+    "allowJs": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "exclude": ["node_modules", "**/*.ts", "out/**"],
+  "include": ["**/*.ts"],
+  "files": ["main.ts"]
 }

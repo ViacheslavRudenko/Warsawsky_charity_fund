@@ -31,7 +31,7 @@ const paths = {
     dest: "dist/css/",
   },
   scripts: {
-    src: ["src/scripts/**/*.ts"],
+    src: ["src/scripts/**/*.ts", "src/scripts/**/*.js"],
     dest: "dist/js/",
   },
   images: {
@@ -101,7 +101,7 @@ function scripts() {
       //   })
       // )
 
-      //.pipe(concat("main.min.js"))
+      .pipe(concat("main.min.js"))
       .pipe(uglify())
       .pipe(sourcemaps.write("."))
       .pipe(
