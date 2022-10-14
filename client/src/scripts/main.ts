@@ -1,10 +1,8 @@
-//import Donations from "./main/donations/donations.js";
+//import Donations from "./main/donations/";
 import ProductList from "./main/we-need/ProductList";
 
 const renderProductList = new ProductList();
 window.location.pathname == "/" && renderProductList.render();
-
-// if (window.location.pathname == "/donations.html") {
-//   const donations = new Donations();
-//   donations.render();
-// }
+alert("af");
+// const donations = new Donations();
+// window.location.pathname == "/donations.html" && donations.render();

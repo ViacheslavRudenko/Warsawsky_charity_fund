@@ -1,5 +1,5 @@
-const ProductCard = require("./ProductCard.js");
-import { productListData } from "./data.js";
+import ProductCard from "./ProductCard";
+import { productListData } from "./data";
 
 const donates = <HTMLDivElement>document.querySelector(".need__content");
 

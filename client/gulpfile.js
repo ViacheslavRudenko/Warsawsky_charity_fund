@@ -19,6 +19,7 @@ import ts from "gulp-typescript";
 const browsersync = bsCreate();
 const uglify = ugl.default;
 const sass = gulpSass(nodeSass);
+const tsProject = ts.createProject("tsconfig.json");
 
 const paths = {
   html: {
@@ -89,30 +90,29 @@ function styles() {
 }
 
 function scripts() {
-  return gulp
-    .src(paths.scripts.src)
-    .pipe(sourcemaps.init())
-    .pipe(
-      ts({
-        noImplicitAny: true,
-      })
-    )
-    .pipe(
-      babel({
-        presets: ["@babel/env"],
-      })
-    )
-    .pipe(uglify())
-    .pipe(concat("main.min.js"))
-    .pipe(sourcemaps.write("."))
-    .pipe(
-      size({
-        showFiles: true,
-      })
-    )
+  return (
+    gulp
+      .src(paths.scripts.src)
+      .pipe(sourcemaps.init())
+      .pipe(tsProject())
+      // .pipe(
+      //   babel({
+      //     presets: ["@babel/env"],
+      //   })
+      // )
 
-    .pipe(gulp.dest(paths.scripts.dest))
-    .pipe(browsersync.stream());
+      //.pipe(concat("main.min.js"))
+      .pipe(uglify())
+      .pipe(sourcemaps.write("."))
+      .pipe(
+        size({
+          showFiles: true,
+        })
+      )
+
+      .pipe(gulp.dest(paths.scripts.dest))
+      .pipe(browsersync.stream())
+  );
 }
 
 function img() {
