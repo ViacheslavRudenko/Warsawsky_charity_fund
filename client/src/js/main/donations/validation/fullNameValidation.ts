@@ -1,4 +1,6 @@
-export const validateFullName = (name) => {
+import { ValidationData } from "./types";
+
+export const validateFullName = (name: string): ValidationData => {
   const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
   if (name.length === 0) {
     return { message: "Full Name is required", success: false };

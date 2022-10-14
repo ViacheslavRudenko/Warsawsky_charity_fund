@@ -1,4 +1,12 @@
-export const productListData = [
+type DataArray = Array<{
+  imgUrl: string;
+  name: string;
+  collected: number;
+  purchased: number;
+  remains: number;
+}>;
+
+export const productListData: DataArray = [
   {
     imgUrl: "https://images.prom.ua/3979331917_taktichna-vijskova-aptechka.jpg",
     name: "Мед рюкзаки 20-30л",
