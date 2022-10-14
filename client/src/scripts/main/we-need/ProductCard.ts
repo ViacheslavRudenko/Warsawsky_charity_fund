@@ -1,13 +1,12 @@
 export default class ProductCard {
-  constructor(imgUrl, name, collected, purchased, remains) {
-    this.imgUrl = imgUrl;
-    this.name = name;
-    this.collected = collected;
-    this.purchased = purchased;
-    this.remains = remains;
-  }
-  createProductCard = (imgUrl, name, collected, purchased, remains) =>
-    `<div class="card">
+  createProductCard = (
+    imgUrl: string,
+    name: string,
+    collected: number,
+    purchased: number,
+    remains: number
+  ): string => {
+    return `<div class="card">
         <div class="card__img"><img src="${imgUrl}" alt="${name}" /></div>
         <div class="card__progress">
             <div class="card__progress--success" style="width:${
@@ -22,4 +21,5 @@ export default class ProductCard {
         </div>
         <button class="card__btn btn">Звіт</button>
     </div>`;
+  };
 }

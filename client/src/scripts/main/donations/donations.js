@@ -1,8 +1,8 @@
-import { checkCreditCard } from "./validation/cardNumValidation.js";
-import { validateFullName } from "./validation/fullNameValidation.js";
-import { validateCvvCode } from "./validation/cvvValidation.js";
-import { validateExpiryDate } from "./validation/dateValidation.js";
-import { validateSum } from "./validation/sumValidation.js";
+import { checkCreditCard } from "./validation/cardNumValidation.ts";
+import { validateFullName } from "./validation/fullNameValidation.ts";
+import { validateCvvCode } from "./validation/cvvValidation.ts";
+import { validateExpiryDate } from "./validation/dateValidation.ts";
+import { validateSum } from "./validation/sumValidation.ts";
 
 const btnSubmit = document.querySelector("#btn-submit");
 
@@ -11,16 +11,17 @@ export default class Donations {
     let formData = [];
 
     btnSubmit.addEventListener("click", (e) => {
-      formData = Array.from(
-        document.querySelectorAll("#donations-form input")
-      ).reduce((acc, input) => ({ ...acc, [input.name]: input.value }), {});
+      const form = document.getElementById("donations-form");
+      const formDataa = new FormData(form);
+      for (const [key, value] of formDataa) {
+        value !== "" && (formData = { [key]: value });
+      }
       const sumSuccess = this.getSumValidation(formData.sum);
       const ccSuccess = this.getCardNumValidation(formData.cardnumber);
       const nameSuccess = this.getFullNameValidation(formData.fullname);
       const cvvSuccess = this.getCvvValidation(formData.cvv);
       const dateSuccess = this.getExpiryDateValidation(formData.expdate);
-      if (sumSuccess && ccSuccess && nameSuccess && cvvSuccess) {
-        const form = document.getElementById("donations-form");
+      if (sumSuccess && ccSuccess && nameSuccess && cvvSuccess && dateSuccess) {
         form.reset();
         console.log(formData);
       }

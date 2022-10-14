@@ -1,10 +1,10 @@
-import ProductCard from "./ProductCard.js";
+const ProductCard = require("./ProductCard.js");
 import { productListData } from "./data.js";
 
-const donates = document.querySelector(".need__content");
+const donates = <HTMLDivElement>document.querySelector(".need__content");
 
 export default class ProductList extends ProductCard {
-  createProductList = () => {
+  createProductList = (): void => {
     productListData.map((data) => {
       const { imgUrl, name, collected, purchased, remains } = data;
       donates.innerHTML += this.createProductCard(
@@ -16,6 +16,7 @@ export default class ProductList extends ProductCard {
       );
     });
   };
+
   render() {
     this.createProductList();
   }
