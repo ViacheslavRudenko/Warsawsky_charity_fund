@@ -1,4 +1,4 @@
-export default class ProductCard {
+export class ProductCard {
   createProductCard = (
     imgUrl: string,
     name: string,

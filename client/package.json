@@ -29,6 +29,7 @@
   "dependencies": {
     "@babel/core": "^7.19.3",
     "@babel/preset-env": "^7.19.4",
+    "common.js": "^1.1.1",
     "del": "^7.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-ejs": "^5.1.0",
@@ -39,6 +40,7 @@
     "gulp-newer": "^1.4.0",
     "gulp-size": "^4.0.1",
     "gulp-sourcemaps": "^3.0.0",
+    "gulp-strip-import-export": "^1.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-uglify-es": "^3.0.0",
     "node-sass": "^7.0.3",

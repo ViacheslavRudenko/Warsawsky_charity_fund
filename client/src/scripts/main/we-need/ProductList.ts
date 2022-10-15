@@ -1,9 +1,9 @@
-import ProductCard from "./ProductCard";
-import { productListData } from "./data";
+import { ProductCard } from "./ProductCard.js";
+import { productListData } from "./data.js";
 
 const donates = <HTMLDivElement>document.querySelector(".need__content");
 
-export default class ProductList extends ProductCard {
+export class ProductList extends ProductCard {
   createProductList = (): void => {
     productListData.map((data) => {
       const { imgUrl, name, collected, purchased, remains } = data;

@@ -15,6 +15,7 @@ import gulpSass from "gulp-sass";
 import nodeSass from "node-sass";
 import { create as bsCreate } from "browser-sync";
 import ts from "gulp-typescript";
+import stripImportExport from "gulp-strip-import-export";
 
 const browsersync = bsCreate();
 const uglify = ugl.default;
@@ -31,7 +32,7 @@ const paths = {
     dest: "dist/css/",
   },
   scripts: {
-    src: ["src/scripts/**/*.ts", "src/scripts/**/*.js"],
+    src: ["src/scripts/**/**.ts", "src/scripts/**/**.js"],
     dest: "dist/js/",
   },
   images: {
@@ -95,13 +96,10 @@ function scripts() {
       .src(paths.scripts.src)
       .pipe(sourcemaps.init())
       .pipe(tsProject())
-      // .pipe(
-      //   babel({
-      //     presets: ["@babel/env"],
-      //   })
-      // )
 
-      .pipe(concat("main.min.js"))
+      //.pipe(concat("main.js"))
+      //.pipe(stripImportExport())
+      .pipe(babel())
       .pipe(uglify())
       .pipe(sourcemaps.write("."))
       .pipe(
