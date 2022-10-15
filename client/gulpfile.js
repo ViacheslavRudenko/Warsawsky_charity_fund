@@ -96,9 +96,8 @@ function scripts() {
       .src(paths.scripts.src)
       .pipe(sourcemaps.init())
       .pipe(tsProject())
-
-      //.pipe(concat("main.js"))
-      //.pipe(stripImportExport())
+      // .pipe(stripImportExport())
+      // .pipe(concat("main.js"))
       .pipe(babel())
       .pipe(uglify())
       .pipe(sourcemaps.write("."))
