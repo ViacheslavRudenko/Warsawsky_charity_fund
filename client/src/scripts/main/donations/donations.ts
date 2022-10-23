@@ -7,7 +7,7 @@ import { validateSum } from "./validation/sumValidation.js";
 const btnSubmit = <HTMLButtonElement>document.querySelector("#btn-submit");
 type Result = { message: string; success: boolean };
 export default class Donations {
-  getDataFromForm = () => {
+  getDataFromForm() {
     let formData: {
       sum: number;
       cardnumber: number;
@@ -48,7 +48,7 @@ export default class Donations {
         console.log(formData);
       }
     });
-  };
+  }
 
   addInputError(err: any, result: Result): void {
     if (!result.success) {
