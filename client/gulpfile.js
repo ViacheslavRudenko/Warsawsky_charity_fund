@@ -1,47 +1,154 @@
-const gulp = require("gulp");
-const sass = require("gulp-sass")(require("sass"));
-const clean = require("gulp-clean");
-const cleanCSS = require("gulp-clean-css");
-const rename = require("gulp-rename");
-const browserSync = require("browser-sync").create();
-const tinypng = require("gulp-tinypng");
-const autoprefixer = require("gulp-autoprefixer");
+import gulp from "gulp";
+import rename from "gulp-rename";
+import cleanCSS from "gulp-clean-css";
+import babel from "gulp-babel";
+import ugl from "gulp-uglify-es";
+import concat from "gulp-concat";
+import sourcemaps from "gulp-sourcemaps";
+import autoprefixer from "gulp-autoprefixer";
+import imagemin from "gulp-imagemin";
+import htmlmin from "gulp-htmlmin";
+import size from "gulp-size";
+import newer from "gulp-newer";
+import { deleteAsync } from "del";
+import gulpSass from "gulp-sass";
+import nodeSass from "node-sass";
+import { create as bsCreate } from "browser-sync";
+import ts from "gulp-typescript";
+import stripImportExport from "gulp-strip-import-export";
 
-gulp.task("tinypng", () => {
+const browsersync = bsCreate();
+const uglify = ugl.default;
+const sass = gulpSass(nodeSass);
+const tsProject = ts.createProject("tsconfig.json");
+
+const paths = {
+  html: {
+    src: ["src/views/*.html"],
+    dest: "dist/",
+  },
+  styles: {
+    src: ["src/styles/styles.scss"],
+    dest: "dist/css/",
+  },
+  scripts: {
+    src: ["src/scripts/**/**.ts", "src/scripts/**/**.js"],
+    dest: "dist/js/",
+  },
+  images: {
+    src: "src/img/**",
+    dest: "dist/img/",
+  },
+};
+
+function clean() {
+  return deleteAsync(["dist/*", "!dist/img"]);
+}
+
+function html() {
   return gulp
-    .src("./src/images/**")
-    .pipe(tinypng("Tf3xFMPYlz0r2SsdsXwQtghJcLspQYym"))
-    .pipe(gulp.dest("./dist/images"));
-});
-gulp.task("buildStyles", function () {
+    .src(paths.html.src)
+
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(
+      size({
+        showFiles: true,
+      })
+    )
+    .pipe(gulp.dest(paths.html.dest))
+    .pipe(browsersync.stream());
+}
+
+function styles() {
   return gulp
-    .src("./src/scss/styles.scss")
+    .src(paths.styles.src)
+    .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
     .pipe(
       autoprefixer({
-        overrideBrowserList: ["last 2 versions"],
         cascade: false,
       })
     )
-    .pipe(rename("style.min.css"))
-    .pipe(cleanCSS({ compatibility: "ie8" }))
-    .pipe(gulp.dest("./dist/css/"));
-});
-gulp.task("clean", function () {
-  return gulp.src("./dist/*", { read: false }).pipe(clean());
-});
-gulp.task("buildJS", function () {
-  return gulp.src(["./src/js/*.js"]).pipe(gulp.dest("./dist/js"));
-});
+    .pipe(
+      cleanCSS({
+        level: 2,
+      })
+    )
+    .pipe(
+      rename({
+        basename: "style",
+        suffix: ".min",
+      })
+    )
+    .pipe(sourcemaps.write("."))
+    .pipe(
+      size({
+        showFiles: true,
+      })
+    )
+    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(browsersync.stream());
+}
 
-gulp.task("build", gulp.series(["clean", "buildJS", "buildStyles", "tinypng"]));
-gulp.task("dev", () => {
-  browserSync.init({
-    server: "./",
+function scripts() {
+  return (
+    gulp
+      .src(paths.scripts.src)
+      .pipe(sourcemaps.init())
+      .pipe(tsProject())
+      // .pipe(stripImportExport())
+      // .pipe(concat("main.js"))
+      .pipe(babel())
+      .pipe(uglify())
+      .pipe(sourcemaps.write("."))
+      .pipe(
+        size({
+          showFiles: true,
+        })
+      )
+
+      .pipe(gulp.dest(paths.scripts.dest))
+      .pipe(browsersync.stream())
+  );
+}
+
+function img() {
+  return gulp
+    .src(paths.images.src)
+    .pipe(newer(paths.images.dest))
+    .pipe(
+      imagemin({
+        progressive: true,
+      })
+    )
+    .pipe(
+      size({
+        showFiles: true,
+      })
+    )
+    .pipe(gulp.dest(paths.images.dest));
+}
+
+function watch() {
+  browsersync.init({
+    server: {
+      baseDir: "./dist",
+    },
   });
-  gulp.watch("./src/scss/**/**.scss", gulp.series("buildStyles"));
-  gulp.watch("./src/js/**/**.js", gulp.series("buildJS"));
-  gulp.watch("./index.html").on("change", browserSync.reload);
-  gulp.watch("./dist/css/style.min.css").on("change", browserSync.reload);
-  gulp.watch("./dist/js/**/**.js").on("change", browserSync.reload);
-});
+  gulp.watch(paths.html.dest).on("change", browsersync.reload);
+  gulp.watch(paths.html.src, html);
+  gulp.watch(paths.styles.src, styles);
+  gulp.watch(paths.scripts.src, scripts);
+  gulp.watch(paths.images.src, img);
+}
+
+export { clean, html, styles, scripts, img, watch };
+
+export default gulp.series(
+  clean,
+  html,
+  gulp.parallel(styles, scripts, img),
+  watch
+);
+gulp.task("build", gulp.series([clean, styles, img, html, scripts]));
+gulp.task("dev", gulp.series([clean, styles, img, html, scripts, watch]));

@@ -1,0 +1,156 @@
+.donations {
+  font-weight: 300;
+  padding: 40px 0;
+  &__needs {
+    text-align: center;
+  }
+  &__pay {
+    padding-top: 40px;
+  }
+  .needs {
+    &__content {
+      padding: 40px 0;
+      img {
+        width: 250px;
+      }
+    }
+    &__text {
+      a {
+        color: #3576f3;
+      }
+    }
+  }
+  .pay {
+    text-align: center;
+    &__title {
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 36px;
+    }
+    &__title-type {
+      padding: 40px 0;
+      display: flex;
+      justify-content: space-around;
+      max-width: 750px;
+      margin: 0 auto;
+      button {
+        background-color: initial;
+        border: none;
+        padding-bottom: 10px;
+        &:hover {
+          border-bottom: 1px solid #3576f3;
+        }
+      }
+    }
+    &__type {
+      display: grid;
+      padding: 0 10px;
+      grid-template-columns: minmax(auto, 200px) minmax(auto, 200px);
+      justify-content: center;
+      grid-gap: 15px;
+      button {
+        background-color: #000000;
+        color: #fff;
+      }
+    }
+    &__separator {
+      padding: 60px 0;
+      width: fit-content;
+      margin: 0 auto;
+      position: relative;
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        height: 1px;
+        width: 120px;
+        background-color: #000000;
+      }
+      &::before {
+        top: 67px;
+        left: -140px;
+      }
+      &::after {
+        top: 67px;
+        left: 50px;
+      }
+    }
+  }
+  .form {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: minmax(auto, 350px);
+    justify-content: center;
+    padding: 0 10px;
+    input {
+      height: 40px;
+      padding: 0 15px;
+      border-radius: 5px;
+      border: 1px solid #dedcdc;
+
+      &:focus {
+        background: rgba(74, 144, 226, 0.0526495);
+        border: 1px solid #4a90e2;
+      }
+    }
+    &__date {
+      display: flex;
+      input {
+        width: 100%;
+        &:first-of-type {
+          margin-right: 10px;
+        }
+      }
+    }
+    &__btn {
+      background: #3576f3;
+      width: fit-content;
+      color: #fff;
+      font-weight: 300;
+      margin: 30px auto;
+
+      img {
+        padding-right: 15px;
+      }
+    }
+    &__summ {
+      position: relative;
+      background-color: beige;
+      &::after {
+        content: "UAH";
+        position: absolute;
+        color: black;
+      }
+    }
+    .err {
+      color: red;
+      text-align: start;
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .donations {
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+    &__needs,
+    &__pay {
+      flex: 720px;
+    }
+    .needs {
+      &__content {
+        padding: 20vh 0;
+      }
+    }
+
+    .pay {
+      padding-top: 10vh;
+      background: #f2f2f2;
+      height: 100%;
+    }
+  }
+}

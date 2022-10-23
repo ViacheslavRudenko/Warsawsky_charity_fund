@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donations to the army</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.min.css" />
+    <link rel="stylesheet" href="./css/style.min.css.map" />
+  </head>
+  <body>
+    <main>
+      <div class="donations">
+        <div class="donations__needs needs">
+          <h4 class="needs__title">
+            Переказати кошти для потреб української армиї
+          </h4>
+          <div class="needs__content">
+            <img
+              src="https://images.prom.ua/3935196489_w640_h640_bronizhilet-dlya-ballisticheskih.jpg"
+              alt="image of what we need"
+            />
+            <p>Бронижилети</p>
+          </div>
+          <p class="needs__text">Перевірьте наші <a href="#">звіти</a></p>
+        </div>
+        <div class="donations__pay pay">
+          <h6 class="pay__title">Оберіть зручний засіб донату</h6>
+          <div class="pay__title-type">
+            <button>Онлайн</button>
+            <button>SWIFT</button>
+            <button>IBAN</button>
+            <button>CRYPTO</button>
+          </div>
+          <div class="pay__type">
+            <button class="btn">Pay</button>
+            <button class="btn">Pay</button>
+            <button class="btn">mono</button>
+            <button class="btn">privat24</button>
+          </div>
+          <p class="pay__separator">АБО</p>
+          <div class="pay__form">
+            <form class="form" id="donations-form">
+              <input
+                class="form__summ"
+                type="currency"
+                id="sum"
+                name="sum"
+                placeholder="1000"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              />
+              <p style="display: none" class="err" id="sum-err"></p>
+              <input
+                type="tel"
+                id="ccnum"
+                name="cardnumber"
+                placeholder="1111 2222 3333 4444"
+                maxlength="19"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              />
+              <p style="display: none" class="err" id="cc-err"></p>
+              <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="Full name"
+                minlength="3"
+              />
+              <p style="display: none" class="err" id="fullname-err"></p>
+              <input
+                id="expdate"
+                name="expdate"
+                maxlength="5"
+                placeholder="MM/YY"
+                type="text"
+                onkeyup="formatString(event);"
+              />
+
+              <p style="display: none" class="err" id="date-err"></p>
+              <input
+                type="tel"
+                id="cvv"
+                name="cvv"
+                placeholder="CVV"
+                required
+                maxlength="3"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+              />
+              <p style="display: none" class="err" id="cvv-err"></p>
+
+              <button class="btn form__btn" id="btn-submit" type="button">
+                <img src="../img/btn/Group-white.png" alt="pray-logo" />
+                Допомагаю
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="../js/main/donations/ccStyle.js"></script>
+  <script type="module" src="js/main.js"></script>
+</html>

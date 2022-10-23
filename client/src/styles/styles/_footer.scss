@@ -1,0 +1,38 @@
+@import "../mixins";
+.footer {
+  background-color: #000;
+  color: #f6f6f6;
+
+  &__menu {
+    padding: 50px 20px;
+    .nav {
+      width: 100%;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #f6f6f6;
+    padding: 50px 0 50px;
+    p {
+      font-size: 11px;
+      line-height: 13px;
+      padding-left: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .footer {
+    &__nav {
+      @include flex;
+      align-items: flex-end;
+      &__logo,
+      &__nav {
+        flex: 1;
+      }
+    }
+  }
+}

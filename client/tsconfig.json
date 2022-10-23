@@ -1,0 +1,28 @@
+{
+  "include": ["src/**/**.js", "package.json"],
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "module": "ES6",
+    "moduleResolution": "node",
+    "newLine": "LF",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "target": "ES6",
+    "allowJs": true,
+    "checkJs": false,
+    "isolatedModules": true,
+    "emitDeclarationOnly": true
+  }
+}

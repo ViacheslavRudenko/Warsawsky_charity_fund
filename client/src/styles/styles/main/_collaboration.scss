@@ -1,0 +1,46 @@
+@import "../../mixins";
+.collaboration {
+  background-image: url("../../img/Collaboration/Collaba_bg.png");
+  background-repeat: no-repeat;
+  background-position: top 10%;
+  &__title {
+    @include font-title-mobile;
+    padding-bottom: 20px;
+  }
+  &__text {
+    @include font-text-mobile;
+  }
+  &__img {
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .collaboration {
+    padding-top: 200px;
+    position: relative;
+    background-position: right 0 top 10%;
+    .container {
+      display: flex;
+      align-items: flex-start;
+    }
+    &__content,
+    &__img {
+      flex: 1;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .collaboration {
+    &__title {
+      @include font-title-desktop;
+    }
+    &__text {
+      @include font-text-desktop;
+      padding-bottom: 50px;
+    }
+  }
+}

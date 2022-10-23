@@ -1,0 +1,32 @@
+@import "reset";
+@import "variables";
+@import "mixins";
+
+body {
+  min-width: $container-min-widths;
+  font-family: $fontLato;
+  font-weight: 400;
+}
+.container {
+  margin: 0 auto;
+  max-width: $container-max-widths;
+  padding: 20px;
+}
+.btn {
+  border-radius: 32px;
+  border: none;
+  font-weight: 300;
+  font-size: 18px;
+  padding: 15px 30px;
+  span {
+    padding: 0 10px;
+  }
+}
+@import "styles/menu-nav";
+@import "./styles/main/about";
+@import "./styles/main/collaboration";
+@import "./styles/main/we-need";
+@import "./styles/main/donates";
+@import "./styles/footer";
+
+@import "./styles/donations";
